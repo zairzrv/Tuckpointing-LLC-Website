@@ -1,0 +1,352 @@
+/*css for every page*/
+/*red, black, gray, cream, retro, simple*/
+:root {
+    /*custom variables*/
+    --black: #1b1714;
+    --char: #2a2420;
+    --red: #a3241c;
+    --red-dark: #7c1a14;
+    --cream: #f3e8d2;
+    --cream-2: #e8d9bb;
+    --mortar: #cdbf9f;
+    --ink: #1b1714;
+    --muted: #5f554a;
+    /*headings text*/
+    --display: "Alfa Slab One", "Rockwell", Georgia, serif;
+    /*labels text*/
+    --label: "Oswald", "Arial Narrow", Arial, sans-serif;
+    /*main body text*/
+    --body: "Libre Franklin", "Segoe UI", Arial, sans-serif;
+    /*For dark mode users*/
+    color-scheme: light;}
+/*overall layouts and formating*/
+* { /*keep the layout predictable*/
+    box-sizing: border-box;}
+html, body { /*removes the default 8px margin*/
+    margin: 0;}
+body {
+    /*default colors*/
+    background: var(--cream); 
+    color: var(--ink);
+    font: 400 /*text size*/ 17px/1.6 /*line height*/ var(--body);}
+img { /*keep images container size*/
+    max-width: 100%;}
+a { /*keeps links the same color as text and logo from turning blue*/
+    color: inherit;}
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto; /*centers content in wrap class*/
+    padding-left: 20px;
+    padding-right: 20px;}
+.label { /*small page labels*/
+    font: 600 0.8rem var(--label);
+    letter-spacing: .14em;}
+h1, h2, h3 { 
+    font-family: var(--display);
+    font-weight: 400;
+    line-height: 1.08;
+    margin: 0; /*removes default space in headings*/
+    text-wrap: balance;}
+h2 { /*size of heading is responsive to phone screens and wide screens*/
+        /*rem = relative to browsers base text size*/
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem); /*min, preffered, max*/}
+h3 {
+    /*rem = relative to browsers base text size, fixed size*/
+    font-size: 1.3rem;}
+p { /*removes space above and below paragraphs*/
+    margin: 0;}
+
+/*Top bar and nav bar*/
+.topbar .navbar {
+    padding-block: 12px; /*12px of space above/below navbar content*/}
+.topbar .nav-link {
+    font: 500 .85rem var(--label);
+    letter-spacing: .12em;
+    color: var(--cream-2);}
+.topbar .nav-link:hover, .topbar .nav-link:focus { 
+    box-shadow: inset 0 -3px 0 var(--red);}
+.topbar .nav-link.active { 
+    color: var(--cream-2);
+    box-shadow: inset 0 -3px 0 var(--red);}
+.topbar .navbar-toggler { /*for waffle color*/
+    border-color: var(--cream-2);}
+.topbar {
+    background: var(--black);
+    color: var(--cream);}
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: var(--cream);
+    padding: 6px 12px;
+    border-radius: 4px;}
+.logo {
+    display: block; 
+    height: 66px; 
+    width: auto;}
+.call {
+    display: inline-block;
+    background: var(--red);
+    color: var(--cream);
+    text-decoration: none;
+    font: 600 .85rem var(--label);
+    letter-spacing: .1em;
+    padding: 10px 16px;
+    border-radius: 3px;}
+
+/*hero section display*/
+.hero {
+    color: var(--cream);
+    background-color: var(--red-dark);}
+.hero .wrap {
+    padding-block: 88px 96px; 
+    display: grid; /*stacks text*/
+    gap: 28px;}
+.hero .label {
+    color: var(--mortar);}
+.hero h1 {
+    font-size: clamp(2.5em, 6.5vw, 4.8rem);
+    max-width: 16ch}
+.hero h1 em {
+    font-style: normal;
+    color: var(--black);}
+.hero p.lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 52ch;
+    color: var(--cream-2);}
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;}
+.btn {
+    display: inline-block;
+    font: 600 .95rem var(--label);
+    letter-spacing: .1em;
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 3px;
+    border: 2px solid var(--cream);}
+.btn.solid{
+    background: var(--cream);
+    color:  var(--black);}
+.btn.ghost {
+    color: var(--cream);}
+.btn.red{
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--cream);}
+.trust { /*licensed, bonded, insured, family owned*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px; 
+    margin-top: 8px;}
+.trust span {
+    font: 500 .85rem var(--label);
+    letter-spacing: .14em;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 8px;}
+/*creates diamond before each <span>*/
+.trust span::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--black);
+    border: 1px solid var(--cream);
+    transform: rotate(45deg);}
+
+/*for every section*/
+section { /*keeps sections separated*/
+    padding-block: 84px;}
+.section-head {
+    display: grid; /*stacks everything vertically*/
+    margin-bottom: 40px;
+    max-width: 62ch;
+}
+.section-head .label {
+    color: var(--red);}
+
+/*About us*/
+.about-grid {
+    display: grid; 
+    grid-template-columns: 1.15fr .85fr; 
+    gap: 48px; 
+    align-items: start; }
+.about-grid > * { 
+    min-width: 0; }
+.about-copy { 
+    display: grid; 
+    gap: 16px; }
+.pullquote { 
+    font: 400 1.5rem/1.3 var(--display); 
+    color: var(--red); 
+    border-left: 6px solid var(--red); 
+    padding-left: 18px; }
+/*box of stats and information*/
+.stats { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 0; 
+    border: 2px solid var(--black); 
+    background: var(--cream-2); }
+.stats div { 
+    padding: 20px; 
+    border-bottom: 2px solid var(--black); }
+.stats div:nth-child(odd) { 
+    border-right: 2px solid var(--black); }
+.stats div:nth-last-child(-n+2) { 
+    border-bottom: none; }
+.stats b { 
+    display: block; 
+    font: 400 2.2rem/1 var(--display); 
+    color: var(--red); }
+.stats span { font: 500 .78rem var(--label); 
+    letter-spacing: .12em; 
+    text-transform: uppercase; }
+
+/* About us section*/
+.why { 
+    background: var(--cream-2); 
+    border-block: 2px solid var(--black); }
+.why-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 28px; }
+.why-grid div { 
+    display: grid; 
+    gap: 8px; }
+.why-grid h3 { color: var(--red); }
+
+/*Services sections, most requested jobs*/
+.dark { 
+    background: var(--black); 
+    color: var(--cream); }
+.dark .section-head .label { 
+    color: #e08a7a; }
+.dark .section-head p { 
+    color: var(--mortar); }
+.services { 
+    display: grid; grid-template-columns: repeat(4, 1fr); 
+    gap: 2px; background: #4a3f37; 
+    border: 2px solid #4a3f37; }
+.svc { 
+    background: var(--char); 
+    padding: 24px 20px; display: grid; 
+    gap: 8px; align-content: start; }
+.svc .num { 
+    font: 600 .75rem var(--label); 
+    letter-spacing: 
+    .16em; color: #e08a7a; }
+.svc p { 
+    font-size: .92rem; 
+    color: var(--mortar); }
+.svc.feature { 
+    background: var(--red); }
+.svc.feature .num, .svc.feature p { 
+    color: var(--cream); }
+.split { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px; 
+    margin-top: 36px; }
+.split > div { 
+    border: 1px solid #4a3f37; 
+    padding: 22px; 
+    display: grid; 
+    gap: 10px; }
+.bar { 
+    height: 14px; 
+    background: #4a3f37; 
+    display: flex; }
+.bar i { 
+    display: block; 
+    height: 100%; 
+    background: var(--red); }
+.bar i + i { 
+    background: var(--mortar); }
+.bar-legend { 
+    display: flex; 
+    justify-content: space-between; 
+    font: 500 .8rem var(--label); 
+    letter-spacing: .1em; 
+    color: var(--mortar); }
+
+/*The map which shows the radius the business operates in*/
+.area-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 40px;
+    align-items: center;}
+.area-grid > * { min-width: 0; }
+.towns { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-top: 18px; }
+.towns span { 
+    border: 2px solid var(--black); 
+    padding: 6px 14px; 
+    font: 600 .85rem var(--label); 
+    letter-spacing: .1em; 
+    text-transform: uppercase; }
+.towns span.home { 
+    background: var(--red); 
+    border-color: var(--red); 
+    color: var(--cream); }
+.map { 
+    aspect-ratio: 1.3; 
+    max-width: 100%; }
+.map circle.ring { 
+    fill: none; 
+    stroke: var(--red); 
+    stroke-width: 2; 
+    stroke-dasharray: 6 6; }
+.map text { 
+    font: 600 13px var(--label); 
+    letter-spacing: .08em; 
+    fill: var(--ink); }
+.map .dot { fill: var(--black); }
+.map .homedot { fill: var(--red); }
+
+/*footer for the website*/
+footer {
+    background: var(--black);
+    color: var(--mortar);
+    font-size: .85rem;}
+footer .wrap {
+    padding-block: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;}
+
+.town-check { margin-top: 28px;
+    display: grid; gap: 8px; }
+.town-check .label { 
+    color: var(--red); }
+.compare-wrap .uc-tag { 
+    justify-self: start; 
+    margin-bottom: 0; }
+.town-row { 
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap; }
+.town-row input { 
+    flex: 1; 
+    min-width: 0; 
+    font: 400 1rem var(--body); 
+    padding: 12px 14px; 
+    border: 2px solid var(--black); 
+    background: #fffaf0; border-radius: 3px; }
+.town-result { 
+    min-height: 1.6em; 
+    font-weight: 600; }
+.town-result.ok { color: #1f6b35; }
+.town-result.no { color: var(--red); }
+
+
+    
+
+
