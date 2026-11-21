@@ -1,12 +1,11 @@
-/* =========================================================
+/* 
    services.js: Services page (services.html)
-   Use case: Is my town in range?
-   ========================================================= */
+   Use case: Is my town in range?*/
 $(function () {
 
   // The towns we serve, all lowercase so the comparison ignores capitals.
   // (Later this list can come from the database instead.)
-  const TOWNS = ["onrida", "galisburg", "gavana", "knoxville", "kickapoo", "monrith"];
+  const TOWNS = ["oneida", "galesburg", "galva", "knoxville", "kewanee", "monmouth"];
 
   function checkTown() {
     const raw = $("#townInput").val().trim();

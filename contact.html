@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!--mobile layout-->
     <meta name="viewport" content="width=device-width">
-    <title>Home | Tuckpointing</title>
+    <title>Contact | Tuckpointing</title>
     <meta name="description" content="Tuckpointing, chimney repair and masonry repair in Oneida, Illinois since 1996.">
     <!--fonts from google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +40,55 @@
 </header>
 
 <main>
+<section class="page-hero">
+    <div class="wrap hero-split">
+        <div>
+            <span class="label">Contact</span>
+            <h1>Get in touch.</h1>
+            <p>Request a free estimate.</p>
+        </div>
 
+        <!--business contact info card-->
+        <div class="contact-card">
+            <div class="crow"><span class="label">Call or text</span><span class="big">[phone number]</span></div>
+            <div class="crow"><span class="label">Facebook</span><span>[Facebook]</span></div>
+            <div class="crow"><span class="label">Based in</span><span>Oneida, Illinois</span></div>
+            <div class="crow"><span class="label">Credentials</span><span>Licensed, bonded, and insured</span></div>
+        </div>
+    </div>
+</section>
+
+  <section id="estimate" class="estimate">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Free estimate</span>
+        <h2>Request an estimate.</h2>
+        <p>Send us the basics and we'll get back to you to set up a time to look at the job.</p>
+      </div>
+      
+      <form id="estimateForm" class="est-form" novalidate>
+        <div class="fgrid">
+          <div><label class="label" for="fName">Name *</label><input id="fName" class="form-control" type="text"><div class="invalid-feedback">Please enter your name.</div></div>
+          <div><label class="label" for="fPhone">Phone *</label><input id="fPhone" class="form-control" type="tel" placeholder="(309) 555-0123"><div class="invalid-feedback">Please enter a 10-digit phone number.</div></div>
+          <div><label class="label" for="fTown">Town *</label><input id="fTown" class="form-control" type="text"><div class="invalid-feedback">Please enter your town.</div></div>
+          <div><label class="label" for="fArea">Problem area *</label>
+            <select id="fArea" class="form-select"><option value="">Choose one…</option><option>Chimney</option><option>Foundation</option><option>Brick walls</option><option>Stone or veneer</option><option>Stucco</option><option>Not sure</option></select>
+            <div class="invalid-feedback">Please choose a problem area.</div></div>
+          <div class="full"><label class="label" for="fDetails">What are you seeing?</label><textarea id="fDetails" class="form-control" rows="3" placeholder="Cracks, missing mortar, leaks…"></textarea></div>
+          <div><label class="label" for="fPhotos">Photos (optional)</label><input id="fPhotos" class="form-control" type="file" accept="image/*" multiple><small id="photoCount" class="hint"></small></div>
+          <div><span class="label">Best way to reach you</span>
+            <div class="radios"><label><input type="radio" name="pref" value="text" checked> Text</label><label><input type="radio" name="pref" value="call"> Call</label></div></div>
+        </div>
+        <button class="btn red" type="submit">Send request</button>
+      </form>
+      <div id="estimateDone" class="est-done" hidden>
+        <h3>Thanks, <span id="doneName"></span>!</h3>
+        <p id="doneSummary"></p>
+        <p class="hint">Demo only: nothing was actually sent. A real form needs a form service or server to deliver it.</p>
+        <button id="estimateAgain" class="btn red" type="button">Send another</button>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!--Website Footer-->
@@ -56,6 +104,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="JavaScript/site.js"></script>
-<script src="JavaScript/home.js"></script>
+<script src="JavaScript/contact.js"></script>
 </body>
 </html>

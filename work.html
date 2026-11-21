@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!--mobile layout-->
     <meta name="viewport" content="width=device-width">
-    <title>Home | Tuckpointing</title>
+    <title>Work | Tuckpointing</title>
     <meta name="description" content="Tuckpointing, chimney repair and masonry repair in Oneida, Illinois since 1996.">
     <!--fonts from google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +40,66 @@
 </header>
 
 <main>
+    <section class="page-hero">
+        <div class="wrap">
+            <span class="label">OUR WORK</span>
+        <h1>Before &amp; after.</h1>
+        <p>A look at some chimneys, foundations, stone, and brick jobs.</p>
+        </div>
+    </section>
 
+    <section id="work">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="label">Our work</span>
+                <h2>Project gallery.</h2>
+            </div>
+
+            <p class="uc-tag">click a photo to zoom</p>
+            <div class="filters" role="group" aria-label="Filter projects">
+                <button class="filter on" type="button" data-filter="all">All</button>
+                <button class="filter" type="button" data-filter="chimney">Chimneys</button>
+                <button class="filter" type="button" data-filter="foundation">Foundations</button>
+                <button class="filter" type="button" data-filter="stone">Stone</button>
+                <button class="filter" type="button" data-filter="brick">Brick &amp; stucco</button>
+            </div>
+            <div class="gallery" id="gallery">
+                <button class="shot" type="button" data-cat="chimney"><img data-placeholder="chimney" alt="Chimney rebuild"><span>Chimney rebuild</span></button>
+                <button class="shot" type="button" data-cat="foundation"><img data-placeholder="foundation" alt="Foundation tuckpointing"><span>Foundation tuckpointing</span></button>
+                <button class="shot" type="button" data-cat="stone"><img data-placeholder="stone" alt="Stone veneer"><span>Stone veneer</span></button>
+                <button class="shot" type="button" data-cat="brick"><img data-placeholder="brick" alt="Brick repair"><span>Brick repair</span></button>
+                <button class="shot" type="button" data-cat="chimney"><img data-placeholder="chimney" alt="Chimney crown"><span>Chimney crown</span></button>
+                <button class="shot" type="button" data-cat="foundation"><img data-placeholder="foundation" alt="Block foundation repair"><span>Block foundation repair</span></button>
+                <button class="shot" type="button" data-cat="stone"><img data-placeholder="stone" alt="Stone steps"><span>Stone steps</span></button>
+                <button class="shot" type="button" data-cat="brick"><img data-placeholder="brick" alt="Stucco"><span>Stucco</span></button>
+                <button class="shot" type="button" data-cat="brick"><img data-placeholder="brick" alt="City project, Galva"><span>City project, Galva</span></button>
+            </div>
+
+            <div class="compare-wrap">
+       
+                <h3>Drag to compare</h3>
+                <div class="compare" id="compare">
+                    <img id="beforeImg" alt="Before: worn and missing mortar">
+                    <img id="afterImg" alt="After: fresh tuckpointing">
+                    <span class="tag-before">Before</span><span class="tag-after">After</span>
+                    <span class="divider" id="divider"></span>
+                </div>
+                <input id="compareRange" type="range" min="0" max="100" value="50" aria-label="Before and after slider">
+            </div>
+        </div>
+    </section>
+
+<div class="modal fade" id="zoomModal" tabindex="-1" aria-labelledby="zoomTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content zoom-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="zoomTitle">Project</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"><img id="zoomImg" alt=""></div>
+        </div>
+    </div>
+</div>
 </main>
 
 <!--Website Footer-->
@@ -56,6 +115,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="JavaScript/site.js"></script>
-<script src="JavaScript/home.js"></script>
+<script src="JavaScript/work.js"></script>
 </body>
 </html>
