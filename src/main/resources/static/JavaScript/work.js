@@ -1,8 +1,7 @@
 /*
    work.js: Our work page (work.html)
    Use case: filter the gallery by job type
-   Use case: click a photo to zoom in (Bootstrap model)
-   Use case: before / after comparison slider */
+   Use case: click a photo to zoom in (Bootstrap model)*/
 $(function () {
 
   /* Use case: filter 
@@ -29,28 +28,29 @@ $(function () {
      photo's src and alt text into it, then open it. */
   const zoom = new bootstrap.Modal("#zoomModal");
 
-  $(".shot").on("click", function () {
+   $("#gallery").on("click", ".shot", function () {
     const img = $(this).find("img");
     $("#zoomImg").attr({ src: img.attr("src"), alt: img.attr("alt") });
     $("#zoomTitle").text(img.attr("alt"));
     zoom.show();
   });
+  
+  /* Use case: load the gallery from the database.
+      If there are no projects yet, keep the placeholder tiles from work.html. */
+   $.getJSON("/api/projects", function (projects) {
+     if (projects.length === 0) return;
 
-  /* Use case: before / after slider
-     Two pictures are stacked exactly on top of each other.
-     The "after" picture is clipped so only its left v% shows,
-     and the range input (0 to 100) sets v. */
-  $("#beforeImg").attr("src", wallSvg(PALETTE.brick, true));    // worn wall
-  $("#afterImg").attr("src", wallSvg(PALETTE.brick, false));    // fixed wall
-
-  function setCompare(v) {
-    // inset(top right bottom left): hide (100 - v)% from the right side
-    $("#afterImg").css("clip-path", `inset(0 ${100 - v}% 0 0)`);
-    $("#divider").css("left", v + "%");
-  }
-
-  $("#compareRange").on("input", function () {
-    setCompare(this.value);       // "input" fires continuously while dragging
-  });
-  setCompare(50);                 // start in the middle
+     const $gallery = $("#gallery").empty();
+     projects.forEach(function (p) {
+       // Build each tile with .attr() and .text() instead of pasting
+       // HTML strings, so a title can never break the page.
+       const $img = $("<img>").attr({ src: p.imagePath, alt: p.title });
+       const $label = $("<span>").text(p.title);
+       $("<button>")
+         .addClass("shot")
+         .attr({ type: "button", "data-cat": p.category })
+         .append($img, $label)
+         .appendTo($gallery);
+     });
+   });
 });

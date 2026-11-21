@@ -34,21 +34,43 @@ $(function () {
       return;
     }
 
-    // Everything is valid: show a personal thank-you built from their answers.
-    const pref = $("input[name=pref]:checked").val();
-    $("#doneName").text($("#fName").val().trim());
-    $("#doneSummary").text(
-      `We'll ${pref === "text" ? "text" : "call"} you at ${$("#fPhone").val().trim()} ` +
-      `about your ${$("#fArea").val().toLowerCase()} in ${$("#fTown").val().trim()}.`
-    );
-    $(this).slideUp(200);
-    $("#estimateDone").prop("hidden", false).hide().slideDown(200);
+	// Everything is valid: send it to Spring Boot to save in the database.
+	const $form = $(this);
+	const pref = $("input[name=pref]:checked").val();
+	const data = {
+		name:        $("#fName").val().trim(),
+		phone:       $("#fPhone").val().trim(),
+		town:        $("#fTown").val().trim(),
+		problemArea: $("#fArea").val(),
+	    details:     $("#fDetails").val().trim(),
+	    contactPref: pref
+	};
+
+	$.ajax({
+		url: "/api/estimates",
+	    method: "POST",
+	    contentType: "application/json",
+	    data: JSON.stringify(data)
+	})
+	.done(function () {
+	      // Saved: show the personal thank-you.
+		$("#doneName").text(data.name);
+		$("#doneSummary").text(
+			`We'll ${pref === "text" ? "text" : "call"} you at ${data.phone} ` +
+	        `about your ${data.problemArea.toLowerCase()} in ${data.town}.`
+	    );
+	    $form.slideUp(200);
+	    $("#estimateDone").prop("hidden", false).hide().slideDown(200);
+	})
+	.fail(function () {
+	  alert("Sorry, your request couldn't be sent. Please call or text us instead.");
+	});
   });
 
   // As soon as the user fixes a field, remove its red error.
   $("#estimateForm .form-control, #estimateForm .form-select").on("input change", function () {
     $(this).removeClass("is-invalid");
-  });
+	});
 
   // "Send another": clear the form and swap the panels back.
   $("#estimateAgain").on("click", function () {
@@ -56,7 +78,7 @@ $(function () {
     $("#photoCount").text("");
     $("#estimateDone").slideUp(200);
     $("#estimateForm").slideDown(200);
-  });
+	});
 
   if (location.hash === "#estimate") {
     document.getElementById("estimate").scrollIntoView();

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Tuckpointing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600&family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<main>
+    <section class="page-hero">
+        <div class="wrap">
+            <span class="label">Admin</span>
+            <h1>Dashboard.</h1>
+            <p>Estimate requests and gallery photos.</p>
+            <!-- Logout must be a POST form (with the CSRF token), not a plain link -->
+            <form th:action="@{/logout}" method="post">
+                <button class="btn solid" type="submit">Log out</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
